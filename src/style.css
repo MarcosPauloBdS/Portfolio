@@ -1,0 +1,555 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f4f4f4;
+}
+
+nav {
+    background: linear-gradient(180deg, rgb(51, 51, 51), rgb(244, 244, 244, 0.75));
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    border-radius: 0px 0px 20px 20px;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-shadow: 0px 1px 1px #000;
+    text-decoration: none;
+}
+
+/* sobre + formação */
+#sobre-formacao {
+    display: flex;
+    gap: 40px;
+    padding: 100px 40px;
+    min-height: 100vh;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s;
+}
+
+#sobre-formacao.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.coluna {
+    flex: 1;
+}
+
+.coluna p {
+    line-height: 1.6;
+}
+
+/* CARDS */
+.formacao p {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.formacao p:hover {
+    box-shadow: 0 4px 10px rgba(0, 242, 254, 0.2);
+}
+
+/* habil */
+.skills {
+    max-width: 600px;
+}
+
+.skill {
+    margin: 15px 0;
+}
+
+.bar {
+    width: 100%;
+    height: 12px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    transition: 3.5s;
+    border-radius: 20px;
+    background: linear-gradient(270deg, rgb(79, 172, 254), rgb(255, 245, 155) , rgb(0, 242, 254), rgb(79, 172, 254), rgb(0, 242, 254), rgb(79, 172, 254), rgb(0, 242, 254));
+    background-size: 600% 600%;
+    animation: gradientMove 10s ease infinite;
+}
+
+
+section {
+    padding: 80px 20px;
+    min-height: 100vh;
+    scroll-margin-top: 70px;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1 {
+    text-align: center;
+}
+
+/* form */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+}
+
+input, textarea {
+    margin: 5px 0;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+}
+
+/* botão de tema */
+#temaBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+}
+
+
+/* tema escuro */
+.dark {
+    background: #121212;
+    color: white;
+}
+
+.dark nav {
+    background: linear-gradient(180deg, rgb(0, 0, 0), rgb(18, 18, 18, 0.75));
+}
+
+.dark .formacao p {
+    background: #1e1e1e;
+}
+
+.dark .bar {
+    background: #333;
+}
+
+.dark .progress {
+    background: linear-gradient(270deg, rgb(79, 172, 254), rgb(233, 0, 194) , rgb(0, 242, 254), rgb(79, 172, 254), rgb(0, 242, 254), rgb(79, 172, 254), rgb(0, 242, 254));
+    background-size: 600% 600%;
+    animation: gradientMove 10s ease infinite;
+}
+
+
+body {
+    background: linear-gradient(to bottom, #ffffff, #bdbdbd);
+}
+
+.dark {
+    background: linear-gradient(to bottom, #1a1a1a, #000000);
+}
+
+.grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 250px;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+
+.card img {
+    width: 100%;
+}
+
+.card h3 {
+    text-align: center;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.7);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 75%;
+    max-width: 800px;
+    max-height: 80vh;
+    
+    overflow-y: auto;
+
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+
+    position: relative;
+
+    animation: aparecer 0.3s;
+}
+
+.modal-content a {
+    padding: 0px 0px 0 20px;
+}
+
+.modal-content img {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dark .card {
+    background: #1e1e1e;
+    color: white;
+}
+
+/* MODAL tema escuro */
+.dark #modal {
+    background: rgba(0,0,0,0.8);
+}
+
+.dark .modal-content {
+    background: #1e1e1e;
+    color: white;
+}
+
+.dark .close {
+    color: white;
+}
+
+.close:hover {
+    color: red;
+    font-size: 23px;
+    transition: 0.35s;
+}
+
+
+
+.social {
+    margin-top: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 25px;
+}
+.social img {
+    vertical-align: middle;
+}
+
+.social a {
+    width: 200px;
+
+    padding: 12px;
+    text-align: center;
+
+    background: #333;
+    color: white;
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+}
+
+#portfolio {
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.05), rgba(44, 44, 44, 0.05), rgba(0, 0, 0, 0.171));
+    background-size: 600% 600%;
+    animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+.social a:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+}
+
+/* tema escuro */
+.dark .social a {
+    background: #1e1e1e;
+}
+
+@keyframes aparecer {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+/* btn de tema */
+.dark #temaBtn {
+    background: #333;
+    color: white;
+}
+
+#temaBtn {
+    transition: transform 0.3s;
+}
+
+#temaBtn:active {
+    transform: rotate(180deg);
+}
+
+
+@keyframes destaque {
+    0% { color: #4facfe; }
+    50% { color: #00f2fe; }
+    100% { color: inherit; }
+}
+
+#sobre:target .tituloSobre {
+    animation: destaque 1.5s ease;
+}
+
+#formacao:target .tituloFormacao {
+    animation: destaque 1.5s ease;
+}
+
+#portfolio:target .tituloProjetos {
+    animation: destaque 1.5s ease;
+}
+
+#contato:target .tituloContato {
+    animation: destaque 1.5s ease;
+}
+
+#sobre,
+#formacao {
+    scroll-margin-top: 120px;
+}
+
+
+
+
+#menuRetratil {
+    position: fixed;
+    bottom: -220px; /* escondido */
+    right: 20px;
+
+    width: 220px;
+
+    background: white;
+    border-radius: 15px 15px 0 0;
+
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+
+    transition: 0.4s;
+    z-index: 9999;
+}
+
+#menuRetratil.open {
+    bottom: 0;
+}
+
+#toggleMenu {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #333;
+    color: white;
+
+    padding: 5px 10px;
+    border-radius: 10px 10px 0 0;
+
+    cursor: pointer;
+}
+
+
+
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+}
+
+.menu-content a,
+.menu-content button {
+    text-decoration: none;
+    border: none;
+
+    padding: 10px;
+    border-radius: 10px;
+
+    background: #333;
+    color: white;
+
+    cursor: pointer;
+    text-align: center;
+}
+
+.menu-content a:hover,
+.menu-content button:hover {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+}
+
+/* tema escuro */
+.dark #menuRetratil {
+    background: #1e1e1e;
+}
+
+.dark .menu-content a,
+.dark .menu-content button {
+    background: #333;
+}
+
+
+/* posição padrão */
+#temaBtn {
+    bottom: 20px;
+    transition: bottom 0.35s ease;
+}
+
+/* quando menu estiver aberto */
+body.menu-aberto #temaBtn {
+    bottom:  260px; /* ajusta conforme altura do seu menu */
+    transition: 0.35s;
+}
+
+
+/* tema claro */
+body {
+    cursor: url("images/cursores/Gray\ Glowing\ Cursor.cur"), auto;
+}
+
+a, button, .card, #temaBtn, .close, .menu-content a,
+.menu-content button, #toggleMenu {
+    cursor: url("images/cursores/Yellow\ Glowing\ Cursor.cur"), pointer;
+}
+
+
+/* tema escuro */
+.dark {
+    cursor: url("images/cursores/Blue\ Glowing\ Cursor.cur"), auto;
+}
+
+.dark a,
+.dark button,
+.dark .card,
+.dark #temaBtn,
+.dark .close,
+.dark .menu-content a,
+.dark .menu-content button,
+.dark #toggleMenu {
+    cursor: url("images/cursores/Purple\ Glowing\ Cursor.cur"), pointer;
+}
+
+
+
+
+
+
+
+
+/* responsivo */
+@media (max-width: 768px) {
+
+    #sobre-formacao {
+        flex-direction: column;
+        padding: 100px 20px;
+        gap: 20px;
+    }
+
+    .coluna {
+        width: 100%;
+    }
+
+    .formacao p {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    /* NAV mais compacto */
+    nav ul {
+        flex-wrap: wrap;
+    }
+
+    nav li {
+        margin: 5px;
+    }
+
+    /* CARDS */
+    .card {
+        width: 90%;
+    }
+
+    /* MODAL */
+    .modal-content {
+        width: 90%;
+        max-height: 85vh;
+    }
+}
